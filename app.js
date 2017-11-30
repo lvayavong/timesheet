@@ -49,4 +49,7 @@ database.ref().on('child_added', function(childSnapshot) {
 	console.log('Role: ' + childSnapshot.val().role);
 	console.log('Start: ' + childSnapshot.val().start);
 	console.log('Rate: ' + childSnapshot.val().monthlyRate);
+	var tenure = moment(moment()).diff(childSnapshot.val().start, 'months');
+	console.log('Tenure: ' + tenure);
+	console.log('Total pay: ' + tenure * childSnapshot.val().monthlyRate);
 })
