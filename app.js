@@ -41,17 +41,12 @@ $('#submit').on('click', function(event) {
 	})
 
 })
-	
 
 
 // when data is updated in Firebase, update the table
-database.ref().on('value', function(snapshot) {
-	// get values from Firebase
-	// name
-	// role
-	// months worked
-	// monthly rate
-	// total billed
-	// add to table
+database.ref().on('child_added', function(childSnapshot) {
+	console.log('Name: ' + childSnapshot.val().name);
+	console.log('Role: ' + childSnapshot.val().role);
+	console.log('Start: ' + childSnapshot.val().start);
+	console.log('Rate: ' + childSnapshot.val().monthlyRate);
 })
-	
